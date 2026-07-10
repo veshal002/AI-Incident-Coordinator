@@ -1,0 +1,11 @@
+incident_id,title,category,resolution
+INC001,VPN authentication timeout in Singapore,Authentication,Restart LDAP authentication service and verify replication.
+INC002,Database connection pool exhausted,Database,Increase pool size and restart application.
+INC003,DNS resolution failure for internal services,Network,Flush DNS cache and restart DNS service.
+INC004,Disk usage exceeded 95 percent,Storage,Remove unnecessary files and expand storage.
+INC005,Firewall blocked VPN traffic,Network,Update firewall rules to allow VPN ports.
+INC006,SSL certificate expired on web server,Security,Renew SSL certificate and restart web server.
+INC007,Application crashed due to memory leak,Application,Deploy patched version and restart service.
+INC008,LDAP replication delayed,Authentication,Force LDAP synchronization.
+INC009,API gateway returned 502 errors,Infrastructure,Restart gateway and verify upstream services.
+INC010,High CPU utilization on authentication server,Authentication,Restart authentication service and investigate running processes.
