@@ -1,13 +1,11 @@
-from langchain_openrouter import ChatOpenRouter
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-from app.services.config import OPENROUTER_API_KEY
-
+from app.services.config import GOOGLE_API_KEY
 
 def get_llm():
 
-    llm = ChatOpenRouter(
-        model="google/gemma-4-26b-a4b-it:free",
-        google_api_key=OPENROUTER_API_KEY,
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash-lite",
         temperature=0.5
     )
 

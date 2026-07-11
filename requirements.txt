@@ -5,9 +5,14 @@ langchain-groq
 langchain-community
 langchain-openrouter
 
+openrouter
+unstructured
+
+rank-bm25
 chromadb
 
 pandas
+numpy
 
 dotenv
 

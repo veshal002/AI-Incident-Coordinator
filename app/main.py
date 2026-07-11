@@ -1,12 +1,11 @@
 from app.agents.incident_classifier import IncidentClassifier
-from app.retrievers.semantic_retriver import SemanticRetriever
-
+from app.retrievers.hybrid_retriever import HybridRetriever
 
 def main():
 
 
     classifier=IncidentClassifier()
-    retriever=SemanticRetriever()
+    retriever= HybridRetriever()
 
     incident = """
 VPN authentication is failing for users in Singapore.
@@ -27,10 +26,10 @@ Authentication timeout observed after credential validation.
     print(f'Reason: {classification.reasoning}')
 
 
-    docs=retriever.retrieve("VPN authentication timeout singapore")
-    for i, doc in enumerate(docs, start=1):
-        print("\n",'-'*50)
-        print(f"Document: {i}")
+    docs=retriever.retrieve("LADAP replication delay")
+    for doc in docs:
+        print("-"*50)
+        print(doc.page_content)
 
 
 

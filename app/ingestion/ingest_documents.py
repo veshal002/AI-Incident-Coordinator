@@ -2,18 +2,13 @@ from pathlib import Path
 
 from langchain_community.document_loaders import(CSVLoader,DirectoryLoader,TextLoader,UnstructuredMarkdownLoader)
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 from app.database.vector_store import get_vector_store
+from app.services.document_loader import EnterpriseDocumentLoader
 
-# Load
-DATA_PATH=Path("data")
-
-documents=[]
-
-documents.extend(CSVLoader(str(DATA_PATH/"incidents"/'historical_incidents.csv')).load())
-
-documents.extend(DirectoryLoader(str(DATA_PATH/'runbooks'),glob="*.md",loader_cls=UnstructuredMarkdownLoader).load())
-documents.extend(DirectoryLoader(str(DATA_PATH/'sops'),glob="*.md",loader_cls=UnstructuredMarkdownLoader).load())
-documents.extend(DirectoryLoader(str(DATA_PATH/'logs'),glob="*.log",loader_cls=TextLoader).load())
+# LOAD
+loader=EnterpriseDocumentLoader()
+documents=loader.load_documents()
 
 # SPLIT
 
