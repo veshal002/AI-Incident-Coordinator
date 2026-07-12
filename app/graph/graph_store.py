@@ -1,4 +1,5 @@
 import networkx as nx
+import pickle
 
 class GraphStore:
     
@@ -15,4 +16,12 @@ class GraphStore:
         if node not in self.graph:
             return []
         
-        return list(self.grpah.neighbors(node))
+        return list(self.graph.neighbors(node))
+    
+    def save(self,path):
+        with open(open,"wb") as f:
+            pickle.dump(self.graph,f)
+    
+    def load(self,path):
+        with open(path,"rb") as f:
+            self.graph=pickle.load(f)
