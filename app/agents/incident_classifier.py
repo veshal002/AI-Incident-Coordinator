@@ -4,7 +4,7 @@ from app.models.incident_models import IncidentClassification
 
 class IncidentClassifier(BaseAgent):
 
-    def classify(self, incident: str) -> str:
+    def classify(self, incident: str) -> IncidentClassification:
 
         prompt = f"""
 You are an enterprise IT incident classifier.
